@@ -3,6 +3,7 @@
 # throughout this file
 import pygame
 from constants import *
+from player import Player
 
 
 def main():
@@ -20,6 +21,9 @@ def main():
     # Initialize delta time
     dt = 0
 
+    # Instantiate the Player object in the middle of the screen
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     # Game loop
     while True:
         # Event handling
@@ -28,7 +32,10 @@ def main():
                 return
             
         # Fill the screen with black
-        screen.fill(0, rect=None, special_flags=0)
+        screen.fill((0, 0, 0), rect=None, special_flags=0)
+
+        # Re-render the player on screen each frame
+        player.draw(screen)
 
         # Refresh the display
         pygame.display.flip()
@@ -39,5 +46,7 @@ def main():
 
 
 
+
+# Run game
 if __name__ == "__main__":
     main()
