@@ -24,6 +24,10 @@ def main():
     # Instantiate the Player object in the middle of the screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
+    # Groups
+    updatable = pygame.sprite.Group(player)
+    drawable = pygame.sprite.Group(player)
+
     # Game loop
     while True:
         # Event handling
@@ -37,10 +41,10 @@ def main():
         # Fill the screen with black
         screen.fill((0, 0, 0), rect=None, special_flags=0)
 
-        player.update(dt)
+        updatable.update(dt)
 
         # Re-render the player on screen each frame
-        player.draw(screen)
+        drawable.draw(screen)
 
         # Refresh the display
         pygame.display.flip()
