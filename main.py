@@ -30,9 +30,14 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-            
+
+        # Control the frame rate and calculate delta time
+        dt = clock.tick(60) / 1000
+
         # Fill the screen with black
         screen.fill((0, 0, 0), rect=None, special_flags=0)
+
+        player.update(dt)
 
         # Re-render the player on screen each frame
         player.draw(screen)
@@ -41,8 +46,7 @@ def main():
         pygame.display.flip()
 
         clock.tick(60)
-        # Control the frame rate and calculate delta time
-        dt = clock.tick(60) / 1000
+
 
 
 
