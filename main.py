@@ -10,6 +10,12 @@ def main():
     # Create a display surface (the game window)
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # Create a Clock object
+    clock = pygame.time.Clock()
+    
+    # Initialize delta time
+    dt = 0
+
     # Game loop
     while True:
         # Event handling
@@ -22,6 +28,8 @@ def main():
 
         # Refresh the display
         pygame.display.flip()
+
+        clock.tick(60)
 
 
 if __name__ == "__main__":
