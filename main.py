@@ -34,6 +34,9 @@ def main():
         # Fill the screen with black
         screen.fill((0, 0, 0), rect=None, special_flags=0)
 
+        # Update player sprite
+        player.update(dt)
+
         # Re-render the player on screen each frame
         player.draw(screen)
 
