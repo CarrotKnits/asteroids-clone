@@ -27,6 +27,9 @@ def main():
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
 
+    # Initialize the AsteroidField
+    asteroid_field = AsteroidField()
+
     # Instantiate the Player object in the middle of the screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
