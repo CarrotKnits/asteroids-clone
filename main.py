@@ -50,6 +50,11 @@ def main():
         for sprite in updatable:
             sprite.update(dt)
 
+        for object in asteroids:
+            if object.collides_with(player):
+                print("Game over!")
+                exit()
+
         # Re-render the sprites on screen each frame
         for sprite in drawable:
             sprite.draw(screen)
