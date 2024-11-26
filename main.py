@@ -1,7 +1,7 @@
 import pygame
 from constants import *
 from player import *
-
+from asteroid import *
 
 def main():
     pygame.init()
@@ -21,7 +21,9 @@ def main():
     # Groups
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
+    Asteroid.containers = (asteroids, updatable, drawable)
 
     # Instantiate the Player object in the middle of the screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
