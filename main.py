@@ -53,10 +53,16 @@ def main():
         for sprite in updatable:
             sprite.update(dt)
 
-        for object in asteroids:
-            if object.collides_with(player):
+        for asteroid in asteroids:
+            if asteroid.collides_with(player):
                 print("Game over!")
                 exit()
+
+        for asteroid in asteroids:
+            for shot in all_shots:
+                if shot.collides_with(asteroid):
+                    asteroid.kill()
+                    shot.kill()
 
         # Re-render the sprites on screen each frame
         for sprite in drawable:
@@ -64,8 +70,6 @@ def main():
 
         # Refresh the display
         pygame.display.flip()
-
-
 
         clock.tick(60)
 
